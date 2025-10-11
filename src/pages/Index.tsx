@@ -19,7 +19,6 @@ const Index = () => {
   useEffect(() => {
     let filtered = products;
 
-    // Filter by search query
     if (searchQuery) {
       filtered = filtered.filter(
         (product) =>
@@ -29,14 +28,12 @@ const Index = () => {
       );
     }
 
-    // Filter by categories
     if (selectedCategories.length > 0) {
       filtered = filtered.filter((product) =>
         selectedCategories.includes(product.category)
       );
     }
 
-    // Filter by size
     if (selectedSize !== "All") {
       filtered = filtered.filter((product) => product.size === selectedSize);
     }
@@ -71,40 +68,48 @@ const Index = () => {
         onSearchChange={setSearchQuery}
         onNavigate={handleNavigate}
       />
-
       <main>
         <div id="home">
           <HeroCarousel />
         </div>
 
+        {/* PRODUCTS SECTION */}
         <section id="products" className="py-16">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                Our <span className="bg-gradient-gold bg-clip-text text-transparent">Collection</span>
+                Our{" "}
+                <span className="bg-gradient-gold bg-clip-text text-transparent">
+                  Collection
+                </span>
               </h2>
               <div className="h-1 w-24 bg-gradient-gold mx-auto mb-4 rounded-full"></div>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Discover our exquisite range of handcrafted marble statues, each piece a testament to divine artistry and spiritual devotion.
+                Discover our exquisite range of handcrafted marble statues, each
+                piece a testament to divine artistry and spiritual devotion.
               </p>
             </div>
 
-            <div className="flex flex-col md:flex-row gap-8">
-              <ProductFilters
-                selectedCategories={selectedCategories}
-                selectedSize={selectedSize}
-                onCategoryChange={handleCategoryChange}
-                onSizeChange={setSelectedSize}
-              />
+            {/* FIXED LAYOUT WRAPPER */}
+            <div className="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-8 items-start">
+              {/* Filters Column */}
+              <div className="relative">
+                <div className="sticky top-28">
+                  <ProductFilters
+                    selectedCategories={selectedCategories}
+                    selectedSize={selectedSize}
+                    onCategoryChange={handleCategoryChange}
+                    onSizeChange={setSelectedSize}
+                  />
+                </div>
+              </div>
 
-              <div className="flex-1">
+              {/* Product Grid Column */}
+              <div className="flex-1 w-full">
                 {filteredProducts.length === 0 ? (
                   <div className="text-center py-20">
                     <p className="text-xl text-muted-foreground mb-4">
-                      No products found matching your criteria
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      Try adjusting your filters or search query
+                      No products found
                     </p>
                   </div>
                 ) : (
