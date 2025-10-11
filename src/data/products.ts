@@ -20,10 +20,10 @@ export const products: Product[] = [
     category: "Marble Moorti",
     subCategory: "Ganesha Idols",
     size: "Medium",
-    imageUrl: "/src/assets/ganesha1.jpeg",
+    imageUrl: "C:/Users/91999/Desktop/moortiwalas/src/assets/ganesha1.jpeg",
     variants: [
-      { name: " Ganesha ", image: "/src/assets/ganesha.jpeg" },
-      { name: " Ganesha ", image: "/src/assets/ganesha2.jpeg" },
+      { name: " Ganesha ", image: "C:/Users/91999/Desktop/moortiwalas/src/assets/ganesha.jpeg" },
+      { name: " Ganesha ", image: "C:/Users/91999/Desktop/moortiwalas/src/assets/ganesha2.jpeg" },
       { name: "Ganesha ", image: "/src/assets/ganesha3.jpeg" },
       { name: " Ganesha ", image: "/src/assets/ganesha1.jpeg" },
     ],
