@@ -16,7 +16,6 @@ const categories = [
   "Marble Bust and Statue",
   "Handicraft Items",
 ];
-
 const sizes = ["Small", "Medium", "Large"];
 
 export const ProductFilters = ({
@@ -26,14 +25,13 @@ export const ProductFilters = ({
   onSizeChange,
 }: ProductFiltersProps) => {
   return (
-    <aside className="w-full md:w-64 bg-card rounded-lg p-6 shadow-elegant border border-border h-fit sticky top-24">
+    // --- THIS IS THE CORRECTED ASIDE ELEMENT ---
+    <aside className="w-full md:w-64 md:flex-shrink-0 bg-card rounded-lg p-6 shadow-elegant border border-border h-fit sticky top-24">
       <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
         <span className="w-1 h-6 bg-gradient-gold rounded-full"></span>
         Filters
       </h3>
-
       <div className="space-y-6">
-        {/* Category Filter */}
         <div>
           <h4 className="text-sm font-medium text-foreground mb-3">Category</h4>
           <div className="space-y-3">
@@ -55,10 +53,7 @@ export const ProductFilters = ({
             ))}
           </div>
         </div>
-
         <Separator className="bg-border" />
-
-        {/* Size Filter */}
         <div>
           <h4 className="text-sm font-medium text-foreground mb-3">Size</h4>
           <RadioGroup value={selectedSize} onValueChange={onSizeChange}>
